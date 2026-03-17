@@ -1,0 +1,47 @@
+/* carte-sentier.css */
+body{display:flex;flex-direction:column;min-height:100vh;}
+.page-body{padding:2rem 0;flex:1;max-width:680px;}
+.parcours-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.8rem;flex-wrap:wrap;gap:1rem;}
+.parcours-info h1{font-size:2rem;margin-bottom:.2rem;}
+.parcours-langue{color:var(--primaire);font-weight:500;font-size:.95rem;}
+.parcours-global{display:flex;flex-direction:column;align-items:center;gap:.3rem;}
+.global-cercle{position:relative;width:64px;height:64px;}
+.progress-ring{width:64px;height:64px;transform:rotate(-90deg);}
+.ring-bg{fill:none;stroke:var(--bordure);stroke-width:4;}
+.ring-fill{fill:none;stroke:var(--secondaire);stroke-width:4;stroke-linecap:round;stroke-dasharray:113;transition:stroke-dashoffset .8s ease;}
+.global-pct{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:.82rem;font-weight:600;color:var(--secondaire);}
+.global-lbl{font-size:.75rem;color:#7b6e64;}
+.filtres{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2rem;}
+.filtre-btn{padding:.35rem .9rem;border-radius:20px;border:1.5px solid var(--bordure);background:white;font-size:.82rem;cursor:pointer;font-family:'Roboto',sans-serif;transition:var(--tr);text-decoration:none;color:var(--texte);}
+.filtre-btn:hover{border-color:var(--accent);}
+.filtre-btn.active{background:var(--secondaire);color:white;border-color:var(--secondaire);}
+.sentier{position:relative;padding-left:40px;}
+.sentier::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:2px;background:var(--bordure);}
+.niveau-groupe{margin-bottom:2rem;}
+.niveau-titre{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--texte);margin-bottom:1.2rem;margin-left:1rem;display:flex;align-items:center;gap:.6rem;}
+.niveau-badge{background:var(--primaire);color:white;padding:.15rem .6rem;border-radius:10px;font-size:.72rem;font-family:'Roboto',sans-serif;font-weight:500;}
+.noeud{display:flex;align-items:center;gap:1.2rem;margin-bottom:1.4rem;position:relative;}
+.noeud-point{position:absolute;left:-28px;width:18px;height:18px;border-radius:50%;border:3px solid var(--bordure);background:white;display:flex;align-items:center;justify-content:center;font-size:.55rem;z-index:1;transition:var(--tr);flex-shrink:0;}
+.noeud.termine .noeud-point{background:var(--secondaire);border-color:var(--secondaire);color:white;}
+.noeud.en-cours .noeud-point{background:var(--primaire);border-color:var(--primaire);color:white;animation:pulse 2s infinite;}
+.noeud.verrouille .noeud-point{background:#e8e0d8;border-color:#d0c8bc;}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(139,90,43,.4);}50%{box-shadow:0 0 0 6px rgba(139,90,43,0);}}
+.noeud-card{flex:1;background:white;border:1.5px solid var(--bordure);border-radius:14px;padding:1.1rem 1.3rem;display:flex;align-items:center;gap:1rem;box-shadow:0 4px 12px rgba(0,0,0,.03);transition:var(--tr);text-decoration:none;color:var(--texte);}
+.noeud.termine .noeud-card{border-color:#c8e6c9;background:#f9fdf9;}
+.noeud.en-cours .noeud-card{border-color:var(--primaire);box-shadow:0 6px 20px rgba(139,90,43,.12);}
+.noeud.verrouille .noeud-card{opacity:.55;}
+.noeud-card:not(.locked):hover{transform:translateX(6px);border-color:var(--accent);}
+.noeud-icone{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.noeud.termine .noeud-icone{background:#e8f5e9;color:#2e7d32;}
+.noeud.en-cours .noeud-icone{background:#fdf3e8;color:var(--primaire);}
+.noeud.verrouille .noeud-icone,.noeud.a-faire .noeud-icone{background:#f3efe9;color:var(--primaire);}
+.noeud-texte{flex:1;}
+.noeud-titre{font-weight:600;font-size:.97rem;margin-bottom:.15rem;}
+.noeud-meta{font-size:.8rem;color:#7b6e64;}
+.noeud-droite{text-align:right;flex-shrink:0;}
+.noeud-pct{font-size:.88rem;font-weight:600;color:var(--secondaire);}
+.noeud-statut{display:inline-block;font-size:.72rem;padding:.15rem .55rem;border-radius:10px;margin-top:.2rem;}
+.statut-termine{background:#e8f5e9;color:#2e7d32;}
+.statut-encours{background:#fff3e0;color:#e65100;}
+.statut-nouveau{background:#e3f2fd;color:#1565c0;}
+.statut-verrouille{background:#f3f0ec;color:#999;}

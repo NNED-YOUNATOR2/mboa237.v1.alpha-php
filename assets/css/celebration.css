@@ -1,0 +1,28 @@
+/* celebration.css */
+body{display:flex;align-items:center;justify-content:center;min-height:100vh;overflow:hidden;background:radial-gradient(ellipse at center,#fdf8f0 0%,#fefcf5 100%);}
+.confettis{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.confetti-piece{position:absolute;top:-20px;opacity:0;animation:tomber var(--dur,3s) var(--delay,0s) ease-in forwards;}
+@keyframes tomber{0%{opacity:1;transform:translateY(0) rotate(0deg);}100%{opacity:0;transform:translateY(110vh) rotate(720deg);}}
+.celebration-wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.8rem;padding:2.5rem 1.5rem;max-width:480px;width:100%;text-align:center;}
+.badge-wrap{position:relative;width:160px;height:160px;}
+.badge-rayon{position:absolute;inset:0;border-radius:50%;background:conic-gradient(var(--accent) 0deg,transparent 30deg,var(--accent) 60deg,transparent 90deg,var(--accent) 120deg,transparent 150deg,var(--accent) 180deg,transparent 210deg,var(--accent) 240deg,transparent 270deg,var(--accent) 300deg,transparent 330deg,var(--accent) 360deg);opacity:.25;animation:tourner 8s linear infinite;}
+@keyframes tourner{to{transform:rotate(360deg);}}
+.badge-cercle{position:absolute;inset:12px;border-radius:50%;background:white;border:3px solid var(--accent);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(139,90,43,.2);animation:apparaitre .8s cubic-bezier(.34,1.56,.64,1) both;}
+@keyframes apparaitre{from{transform:scale(0) rotate(-180deg);opacity:0;}to{transform:scale(1) rotate(0deg);opacity:1;}}
+.badge-inner{display:flex;flex-direction:column;align-items:center;gap:.3rem;}
+.badge-icone{font-size:2.8rem;line-height:1;}
+.badge-label{font-family:'Playfair Display',serif;font-size:.8rem;font-weight:600;color:var(--primaire);text-transform:uppercase;letter-spacing:.5px;}
+.cel-texte h1{font-size:clamp(2rem,6vw,2.8rem);background:linear-gradient(135deg,var(--primaire),var(--secondaire));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.4rem;}
+.cel-sous{font-size:1.1rem;color:var(--texte);margin:0;}
+.cel-langue{font-size:.9rem;color:var(--primaire);font-weight:500;margin:.3rem 0 0;}
+.cel-stats{display:flex;gap:2rem;justify-content:center;background:white;border:1px solid var(--bordure);border-radius:16px;padding:1.2rem 2rem;box-shadow:var(--ombre);}
+.cel-stat{text-align:center;}
+.cel-val{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--primaire);}
+.cel-lbl{font-size:.75rem;color:#7b6e64;margin-top:.15rem;}
+.nouveau-badge{display:flex;align-items:center;gap:1rem;background:linear-gradient(135deg,#fff9e6,#fff3cc);border:1.5px solid var(--accent);border-radius:14px;padding:1rem 1.4rem;width:100%;}
+.nb-icone{width:44px;height:44px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;color:white;font-size:1.2rem;flex-shrink:0;}
+.nb-titre{font-weight:600;font-size:.95rem;color:var(--texte);}
+.nb-desc{font-size:.83rem;color:#7b6e64;margin-top:.15rem;}
+.cel-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
+.btn-partager{background:none;border:none;cursor:pointer;color:#7b6e64;font-size:.85rem;font-family:'Roboto',sans-serif;display:inline-flex;align-items:center;gap:.4rem;transition:var(--tr);padding:.4rem .8rem;border-radius:20px;}
+.btn-partager:hover{color:var(--primaire);background:#f3efe9;}

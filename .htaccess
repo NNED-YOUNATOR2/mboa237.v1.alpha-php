@@ -1,0 +1,30 @@
+Options -Indexes
+RewriteEngine On
+
+# Rediriger les erreurs
+ErrorDocument 404 /mboa237/404.php
+ErrorDocument 403 /mboa237/403.php
+
+# Sécurité : bloquer l'accès aux fichiers sensibles
+<FilesMatch "\.(sql|log|env|git)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Bloquer l'accès direct aux dossiers config et includes
+<IfModule mod_rewrite.c>
+    RewriteRule ^config/ - [F,L]
+    RewriteRule ^includes/ - [F,L]
+</IfModule>
+
+# Headers de sécurité
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Compression gzip
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript
+</IfModule>
